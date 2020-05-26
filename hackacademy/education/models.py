@@ -43,10 +43,8 @@ class Solutions(models.Model):
 
     def save(self, *args, **kwargs):
         try:
-            print('something')
-            if self.url.count("https://www.github.com") > 0:
-                requests.get(self.url)
+            if self.url.count("https://www.github.com/") > 0:
+                requests.get(self.url, timeout=3)
+                super().save(*args, **kwargs)
         except Exception as e:
             raise e
-        # finally:
-        super().save(*args, **kwargs)
