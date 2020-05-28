@@ -9,8 +9,8 @@ def list(request):
     return render(request, 'solutions/list.html', {'solutions': Solutions.objects.all()})
 
 
-def detail(request, solutions_id):
-    solutions = get_object_or_404(Solutions, id=solutions_id)
+def detail(request, solution_id):
+    solutions = get_object_or_404(Solutions, id=solution_id)
     return render(request, 'solutions/detail.html', {'solution': solutions})
 
 
