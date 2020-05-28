@@ -42,9 +42,10 @@ class Solutions(models.Model):
     url = models.URLField()
 
     def save(self, *args, **kwargs):
+        # if self.url.count("https://www.github.com/") > 0:
         try:
-            if self.url.count("https://www.github.com/") > 0:
-                requests.get(self.url, timeout=3)
+            r = requests.get(self.url, timeout=5)
+            if r.status_code == 200:
                 super().save(*args, **kwargs)
         except Exception as e:
             raise e
