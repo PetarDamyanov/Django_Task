@@ -1,0 +1,10 @@
+{% load static %}
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<h1>Welcome to Hackademy!</h1>
+
+<ul>
+  <li><a href="{% url 'education:courses:list' %}">Courses</a></li>
+  <li><a href="{% url 'education:lectures:list' %}">Lectures</a></li>
+</ul>

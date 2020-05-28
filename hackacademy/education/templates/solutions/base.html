@@ -1,0 +1,11 @@
+{% load static %}
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<a href="{% url 'education:index' %}">Home</a>
+<h1><a href="{% url 'education:courses:list' %}">Courses</a></h1>
+<h1><a href="{% url 'education:lectures:list' %}">Lectures</a></h1>
+<h1><a href="{% url 'education:tasks:list' %}">Tasks</a></h1>
+<h1><a href="{% url 'education:solutions:list' %}">Solutions</a></h1>
+
+{% block content %} {% endblock %}

@@ -1,0 +1,25 @@
+{% extends "courses/base.html" %} {% block content %}
+<a href="{% url 'education:courses:create' %}">Add new</a>
+
+{% if courses %}
+<table>
+   <tr>
+   	<th>Courses</th>
+   	<th>Description</th>
+   	<th>Start date</th>
+   	<th>End date</th>
+   	<th>Duration</th>
+   </tr>
+  {% for course in courses %}
+  <tr>
+  <td><a href="{% url 'education:courses:detail' course.id %}">{{ course.name }}</a></td>
+  <td>{{ course.description }}</td>
+  <td>{{ course.start_date }}</td>
+  <td>{{ course.end_date }}</td>
+  <td>{{ course.duration }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p><strong>No courses yet.</strong></p>
+{% endif %} {% endblock %}
